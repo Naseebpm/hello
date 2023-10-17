@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .button-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+      background-color: rgb(226, 23, 84);
+    }
+    #move-button {
+      position: absolute;
+      left: 60%;
+      top: 75%;
+      width: 60px;
+      height: 40px;
+      border-radius: 10px;
+      transform: translate(-50%, -50%);
+    }
+    #yes{
+        position: absolute;
+        top: 75%;
+        left: 40%;
+        width: 60px;
+      height: 40px;
+      border-radius: 10px;
+        transform: translate(-50%, -50%);
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="button-container">
+        <center id="yes_result" style="font-size: 50px;margin-top: 100PX;
+        color: #FFF;font-weight: 900;font-family: 'Times New Roman', Times, serif;">DO YOU LOVE ME</center>
+        <button id="yes">YES</button>
+        <button id="move-button">NO</button>
+      </div>
+  </div>
+
+  <script>
+    const button = document.getElementById('move-button');
+    const container = document.querySelector('.button-container');
+    const yes = document.getElementById('yes');
+
+    yes.addEventListener('click',function(){
+        document.getElementById('yes_result').innerHTML="I LOVE YOU TOOOOO...<br> : )"
+    })
+
+    button.addEventListener('click', () => {
+        document.getElementById('yes_result').innerHTML="DO YOU LOVE ME"
+      const newX = Math.random() * (container.clientWidth - button.clientWidth);
+      const newY = Math.random() * (container.clientHeight - button.clientHeight);
+      button.style.left = newX + 'px';
+      button.style.top = newY + 'px';
+    });
+  </script>
+</body>
+</html>
